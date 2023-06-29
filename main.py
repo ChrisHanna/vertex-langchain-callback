@@ -62,7 +62,8 @@ class EnsureTrueOrFalseHandler(BaseCallbackHandler):
         reasoning = None
       
         if 'text' not in outputs:
-            self.rerun_llm(retry_prompt, questionAndParagraph)
+            answer = "error"
+            reasoning = "could not find text in answer"
 
         try:
             data = json.loads(outputs['text'])
